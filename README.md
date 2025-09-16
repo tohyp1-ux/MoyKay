@@ -106,12 +106,10 @@
       <div class="cups-info" id="cupInfo"></div>
     </div>
 
-    <div class="card images">
-      <h2>我们的 MX-5</h2>
-      <img src="50-50-01-ext.jpg" alt="MX-5 Exterior">
-      <img src="50-50-01-holistic.jpg" alt="MX-5 Holistic View">
-      <img src="mx5-manual.png" alt="MX-5 Manual">
-    </div>
+    <h2>看看我们的 MX-5</h2>
+    <img src="50-50-01-ext.jpg" alt="MX-5 Exterior" />
+    <img src="50-50-01-holistic.jpg" alt="MX-5 Holistic View" />
+    <img src="mx5-manual.png" alt="MX-5 Manual" />
   </main>
 
   <footer>
@@ -121,7 +119,7 @@
   <script>
     // ====== 这里设置你的销售数据 ======
     const lemonadeSold = 20;  // 卖出的柠檬水杯数
-    const juiceSold = 15;     // 卖出的果蔬汁杯数
+    const juiceSold = 0;     // 卖出的果蔬汁杯数
     const priceLemon = 3;     // 每杯柠檬水价格
     const priceJuice = 5;     // 每杯果蔬汁价格
     const priceMX5 = 150000;  // MX-5 价格（MYR）
