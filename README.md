@@ -9,40 +9,52 @@
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      background: #f0f4f8;
       color: #333;
       text-align: center;
     }
 
-    header {
-      background-color: #ff6f61;
+    /* Hero section */
+    .hero {
+      position: relative;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: white;
-      padding: 40px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
     }
 
-    header h1 {
+    .hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5; /* semi-transparent */
+      z-index: 0;
+    }
+
+    .hero h1 {
+      position: relative;
+      font-size: 3em;
+      z-index: 1;
       margin: 0;
-      font-size: 2.5em;
+      padding: 0 20px;
+    }
+
+    .hero p {
+      position: relative;
+      font-size: 1.5em;
+      z-index: 1;
     }
 
     main {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
     }
 
     .progress-container {
@@ -70,10 +82,17 @@
       color: #555;
     }
 
+    .images {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
     .images img {
-      width: 80%;
-      max-width: 500px;
-      margin: 20px 0;
+      width: 45%;
+      max-width: 400px;
       border-radius: 15px;
       border: 2px solid #ddd;
       box-shadow: 0 8px 15px rgba(0,0,0,0.1);
@@ -87,29 +106,33 @@
     footer {
       padding: 20px;
       color: #777;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>MX-5 Lemon & Juice Progress</h1>
-    <p>目标: 购买 MX-5 (150,000 MYR)</p>
-  </header>
+  <!-- Hero section with transparent MX-5 background -->
+  <div class="hero">
+    <img src="50-50-01-ext.jpg" alt="MX-5 Hero">
+    <div>
+      <h1>MX-5 Lemon & Juice Progress</h1>
+      <p>目标: 购买 MX-5 (150,000 MYR)</p>
+    </div>
+  </div>
 
   <main>
-    <div class="card">
-      <h2>销售进度</h2>
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar">0%</div>
-      </div>
-      <div class="cups-info" id="moneyInfo"></div>
-      <div class="cups-info" id="cupInfo"></div>
+    <!-- Progress card -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar">0%</div>
     </div>
+    <div class="cups-info" id="moneyInfo"></div>
+    <div class="cups-info" id="cupInfo"></div>
 
-    <h2>看看我们的 MX-5</h2>
-    <img src="50-50-01-ext.jpg" alt="MX-5 Exterior" />
-    <img src="50-50-01-holistic.jpg" alt="MX-5 Holistic View" />
-    <img src="mx5-manual.png" alt="MX-5 Manual" />
+    <!-- Two MX-5 images below -->
+    <div class="images">
+      <img src="50-50-01-holistic.jpg" alt="MX-5 Holistic View">
+      <img src="mx5-manual.png" alt="MX-5 Manual">
+    </div>
   </main>
 
   <footer>
@@ -117,12 +140,12 @@
   </footer>
 
   <script>
-    // ====== 这里设置你的销售数据 ======
-    const lemonadeSold = 20;  // 卖出的柠檬水杯数
-    const juiceSold = 0;     // 卖出的果蔬汁杯数
-    const priceLemon = 3;     // 每杯柠檬水价格
-    const priceJuice = 5;     // 每杯果蔬汁价格
-    const priceMX5 = 150000;  // MX-5 价格（MYR）
+    // ====== 销售数据 ======
+    const lemonadeSold = 20;
+    const juiceSold = 15;
+    const priceLemon = 3;
+    const priceJuice = 5;
+    const priceMX5 = 150000;
 
     const totalMoney = lemonadeSold * priceLemon + juiceSold * priceJuice;
     const percent = Math.min((totalMoney / priceMX5) * 100, 100);
