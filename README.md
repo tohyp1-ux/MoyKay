@@ -135,7 +135,7 @@
    <!-- 两张 MX-5 图片放下面 -->
 <div class="images">
   <img src="Arrogant-Rich-Man.3.meme.webp" alt="Meme Image">
-  <img src="5b7fa0efbbc63.jpeg" alt="Rich Man Image">
+  <img src="2089hz-300x290.jpg" alt="2089hz Image">
 </div>
 
   </main>
