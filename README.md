@@ -132,11 +132,12 @@
     <div class="cups-info" id="moneyInfo"></div>
     <div class="cups-info" id="cupInfo"></div>
 
-    <!-- 两张 MX-5 图片放下面 -->
-    <div class="images">
-      <img src="50-50-01-holistic.jpg" alt="MX-5 Holistic View">
-      <img src="mx5-manual.png" alt="MX-5 Manual">
-    </div>
+   <!-- 两张 MX-5 图片放下面 -->
+<div class="images">
+  <img src="Arrogant-Rich-Man.3.meme.webp" alt="Meme Image">
+  <img src="5b7fa0efbbc63.jpeg" alt="Rich Man Image">
+</div>
+
   </main>
 
   <footer>
