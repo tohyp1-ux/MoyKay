@@ -23,32 +23,37 @@
       align-items: center;
       color: white;
       overflow: hidden;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+      background: #000; /* fallback */
     }
 
-    .hero img {
+    /* Hero 背景图片 + 半透明蒙版 */
+    .hero::before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      opacity: 0.5; /* semi-transparent */
+      background: url('50-50-01-ext.jpg') center/cover no-repeat;
+      opacity: 0.5;
       z-index: 0;
     }
 
-    .hero h1 {
+    .hero-content {
       position: relative;
-      font-size: 3em;
       z-index: 1;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3em;
       margin: 0;
       padding: 0 20px;
     }
 
     .hero p {
-      position: relative;
       font-size: 1.5em;
-      z-index: 1;
+      margin-top: 10px;
     }
 
     main {
@@ -113,22 +118,21 @@
 <body>
   <!-- Hero section with transparent MX-5 background -->
   <div class="hero">
-    <img src="50-50-01-ext.jpg" alt="MX-5 Hero">
-    <div>
+    <div class="hero-content">
       <h1>MX-5 Lemon & Juice Progress</h1>
       <p>目标: 购买 MX-5 (150,000 MYR)</p>
     </div>
   </div>
 
   <main>
-    <!-- Progress card -->
+    <!-- Progress bar -->
     <div class="progress-container">
       <div class="progress-bar" id="progressBar">0%</div>
     </div>
     <div class="cups-info" id="moneyInfo"></div>
     <div class="cups-info" id="cupInfo"></div>
 
-    <!-- Two MX-5 images below -->
+    <!-- 两张 MX-5 图片放下面 -->
     <div class="images">
       <img src="50-50-01-holistic.jpg" alt="MX-5 Holistic View">
       <img src="mx5-manual.png" alt="MX-5 Manual">
