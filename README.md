@@ -1,4 +1,3 @@
-
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
@@ -108,6 +107,31 @@
       transform: scale(1.05);
     }
 
+    /* 助力按钮 */
+    .support-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .support-container img {
+      width: 50px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .support-container img:hover {
+      transform: scale(1.2);
+    }
+
+    .support-count {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #ff5722;
+    }
+
     footer {
       padding: 20px;
       color: #777;
@@ -131,12 +155,19 @@
     </div>
     <div class="cups-info" id="moneyInfo"></div>
     <div class="cups-info" id="cupInfo"></div>
+    <div class="cups-info" id="dateInfo"></div>
 
-   <!-- 两张 MX-5 图片放下面 -->
-<div class="images">
-  <img src="Arrogant-Rich-Man.3.meme.webp" alt="Meme Image">
-  <img src="2089hz-300x290.jpg" alt="2089hz Image">
-</div>
+    <!-- 助力按钮 -->
+    <div class="support-container">
+      <img src="flame-icon.webp" alt="Support Icon" id="supportBtn">
+      <div class="support-count" id="supportCount">0</div>
+    </div>
+
+    <!-- 两张 MX-5 图片 -->
+    <div class="images">
+      <img src="Arrogant-Rich-Man.3.meme.webp" alt="Meme Image">
+      <img src="2089hz-300x290.jpg" alt="2089hz Image">
+    </div>
 
   </main>
 
@@ -159,8 +190,26 @@
     progressBar.style.width = percent + '%';
     progressBar.textContent = Math.floor(percent) + '%';
 
-    document.getElementById('moneyInfo').textContent = `已赚: ${totalMoney} MYR / ${priceMX5} MYR`;
-    document.getElementById('cupInfo').textContent = `已卖出: ${lemonadeSold} 杯柠檬水, ${juiceSold} 杯果蔬汁`;
+    document.getElementById('moneyInfo').textContent =
+      `已赚: ${totalMoney} MYR / ${priceMX5} MYR`;
+
+    document.getElementById('cupInfo').textContent =
+      `已卖出: ${lemonadeSold} 杯柠檬水 + ${juiceSold} 杯果汁`;
+
+    // ====== 日期显示 ======
+    const today = new Date();
+    const dateString = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+    document.getElementById('dateInfo').textContent = `今天是 ${dateString}`;
+
+    // ====== 助力按钮点击计数 ======
+    let supportCount = 0;
+    const supportBtn = document.getElementById('supportBtn');
+    const supportCountEl = document.getElementById('supportCount');
+
+    supportBtn.addEventListener('click', () => {
+      supportCount++;
+      supportCountEl.textContent = supportCount;
+    });
   </script>
 </body>
 </html>
