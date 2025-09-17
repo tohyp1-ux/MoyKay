@@ -13,6 +13,24 @@
       text-align: center;
     }
 
+    /* 左上角购买按钮 */
+    .buy-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+    }
+
+    .buy-btn img {
+      width: 55px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .buy-btn img:hover {
+      transform: scale(1.15);
+    }
+
     /* Hero section */
     .hero {
       position: relative;
@@ -137,9 +155,23 @@
       color: #777;
       margin-top: 50px;
     }
+
+    .slogan {
+      margin-top: 30px;
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #444;
+    }
   </style>
 </head>
 <body>
+  <!-- 左上角购买按钮 -->
+  <div class="buy-btn">
+    <a href="https://forms.gle/BVusYmnVTwAaeiPa7" target="_blank">
+      <img src="362-3621953_shopping-bag-clipart-icon-transparent-shopping-bag-icon-removebg-preview.png" alt="Buy Button">
+    </a>
+  </div>
+
   <!-- Hero section with transparent MX-5 background -->
   <div class="hero">
     <div class="hero-content">
@@ -168,11 +200,15 @@
       <img src="Arrogant-Rich-Man.3.meme.webp" alt="Meme Image">
       <img src="2089hz-300x290.jpg" alt="2089hz Image">
     </div>
-
   </main>
 
   <footer>
     &copy; 2025 Lemon & Juice MX-5 Progress
+    <div class="slogan">
+      每一杯MoyKay出品皆是真诚之作，<br>
+      希望能开启每个消费者一天好心情。<br>
+      好吧骗你们的，我只想买mazda mx5!!!
+    </div>
   </footer>
 
   <script>
@@ -201,14 +237,17 @@
     const dateString = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
     document.getElementById('dateInfo').textContent = `今天是 ${dateString}`;
 
-    // ====== 助力按钮点击计数 ======
-    let supportCount = 0;
+    // ====== 助力按钮点击计数 + 本地存储 ======
+    let supportCount = localStorage.getItem("supportCount") || 0;
     const supportBtn = document.getElementById('supportBtn');
     const supportCountEl = document.getElementById('supportCount');
+
+    supportCountEl.textContent = supportCount;
 
     supportBtn.addEventListener('click', () => {
       supportCount++;
       supportCountEl.textContent = supportCount;
+      localStorage.setItem("supportCount", supportCount);
     });
   </script>
 </body>
