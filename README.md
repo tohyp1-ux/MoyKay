@@ -34,32 +34,28 @@
     /* Hero section */
     .hero {
       position: relative;
-      height: 50vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
+      width: 100%;
       overflow: hidden;
-      background: #000; /* fallback */
     }
 
-    /* Hero 背景图片 + 半透明蒙版 */
+    /* 新 Hero 背景图 + 半透明 */
     .hero::before {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
+      display: block;
       width: 100%;
-      height: 100%;
-      background: url('50-50-01-ext.jpg') center/cover no-repeat;
+      height: auto;
+      background: url('Untitled design.png') center/contain no-repeat;
       opacity: 0.5;
-      z-index: 0;
     }
 
     .hero-content {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 1;
       text-align: center;
+      color: white;
     }
 
     .hero h1 {
@@ -172,7 +168,7 @@
     </a>
   </div>
 
-  <!-- Hero section with transparent MX-5 background -->
+  <!-- Hero section -->
   <div class="hero">
     <div class="hero-content">
       <h1>MX-5 Lemon & Juice Progress</h1>
