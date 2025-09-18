@@ -199,7 +199,9 @@
 
     <!-- 助力按钮 -->
     <div class="support-container">
-      <img src="flame-icon.webp" alt="Support Icon" id="supportBtn">
+      <img src="pngtree-burning-car-flat-vector-icon-event-simple-network-vector-png-image_12357406-Photoroom.png" 
+     alt="Support Icon" id="supportBtn" style="background: transparent;">
+
       <div class="support-count" id="supportCount">0</div>
     </div>
 
