@@ -141,7 +141,7 @@
     }
 
     .support-container img {
-      width: 50px;
+      width: 70px;
       cursor: pointer;
       transition: transform 0.2s;
     }
