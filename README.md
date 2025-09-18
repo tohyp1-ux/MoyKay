@@ -114,6 +114,22 @@
     .images img:hover {
       transform: scale(1.05);
     }
+/* 针对手机屏幕优化背景图显示 */
+@media (max-width: 600px) {
+  .hero {
+    height: 50vh;  /* 调小高度，避免手机上太占屏幕 */
+    background-size: contain;  /* 保证完整显示，而不是被裁切 */
+    background-position: top center; /* 调整图片位置 */
+  }
+
+  .hero h1 {
+    font-size: 2em; /* 手机上标题缩小 */
+  }
+
+  .hero p {
+    font-size: 1.2em;
+  }
+}
 
     /* 助力按钮 */
     .support-container {
