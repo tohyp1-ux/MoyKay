@@ -33,15 +33,16 @@
 
     /* Hero section */
     .hero {
-      position: relative;
-      height: 70vh;   /* 占满更大高度 */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      overflow: hidden;
-      background: url('Untitled design.png') center/cover no-repeat; /* 新背景 */
-    }
+  position: relative;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+  background: url('designcanvamx5.png') center/cover no-repeat; /* 新背景 */
+}
+
 
     .hero-content {
       position: relative;
