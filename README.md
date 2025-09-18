@@ -40,7 +40,7 @@
   align-items: center;
   color: white;
   overflow: hidden;
-  background: url('designcanvamx5.png') center/cover no-repeat; /* 新背景 */
+  background: url('designcanvamx5.png') center/contain no-repeat; /* 新背景 */
 }
 
 
