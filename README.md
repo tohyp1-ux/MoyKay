@@ -155,12 +155,14 @@
   </style>
 </head>
 <body>
-  <!-- 左上角购买按钮 -->
-  <div class="buy-btn">
-    <a href="https://forms.gle/BVusYmnVTwAaeiPa7" target="_blank">
-      <img src="362-3621953_shopping-bag-clipart-icon-transparent-shopping-bag-icon-removebg-preview.png" alt="Buy Button">
-    </a>
-  </div>
+<!-- 左上角购买按钮 -->
+<div class="buy-btn">
+  <a href="https://forms.gle/BVusYmnVTwAaeiPa7" target="_blank">
+    <img src="362-3621953_shopping-bag-clipart-icon-transparent-shopping-bag-icon-removebg-preview.png" 
+         alt="Buy Button" style="background: transparent;">
+  </a>
+</div>
+
 
   <!-- Hero section with new background -->
   <div class="hero">
