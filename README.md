@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MX-5 Lemon & Juice Progress</title>
+  <title>Project Possible</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -33,22 +33,21 @@
 
     /* Hero section */
     .hero {
-  position: relative;
-  height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  overflow: hidden;
-  background: url('designcanvamx5.png') center/contain no-repeat; /* 新背景 */
-}
-
+      position: relative;
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      overflow: hidden;
+      background: url('designcanvamx5.png') center/contain no-repeat;
+    }
 
     .hero-content {
       position: relative;
       z-index: 1;
       text-align: center;
-      background: rgba(0,0,0,0.4); /* 半透明黑底，保证文字可读 */
+      background: rgba(0,0,0,0.4);
       padding: 20px 30px;
       border-radius: 10px;
     }
@@ -115,22 +114,22 @@
     .images img:hover {
       transform: scale(1.05);
     }
-/* 针对手机屏幕优化背景图显示 */
-@media (max-width: 600px) {
-  .hero {
-    height: 50vh;  /* 调小高度，避免手机上太占屏幕 */
-    background-size: contain;  /* 保证完整显示，而不是被裁切 */
-    background-position: top center; /* 调整图片位置 */
-  }
 
-  .hero h1 {
-    font-size: 2em; /* 手机上标题缩小 */
-  }
+    @media (max-width: 600px) {
+      .hero {
+        height: 50vh;
+        background-size: contain;
+        background-position: top center;
+      }
 
-  .hero p {
-    font-size: 1.2em;
-  }
-}
+      .hero h1 {
+        font-size: 2em;
+      }
+
+      .hero p {
+        font-size: 1.2em;
+      }
+    }
 
     /* 助力按钮 */
     .support-container {
@@ -180,12 +179,11 @@
   </a>
 </div>
 
-
   <!-- Hero section with new background -->
   <div class="hero">
     <div class="hero-content">
-      <h1>MX-5 Lemon & Juice Progress</h1>
-      <p>目标: 购买 MX-5 (150,000 MYR)</p>
+      <h1>Project Possible</h1>
+      <p>Goal: Buy a Mazda MX-5 (150,000 MYR)</p>
     </div>
   </div>
 
@@ -214,7 +212,7 @@
   </main>
 
   <footer>
-    &copy; 2025 Lemon & Juice MX-5 Progress
+    &copy; 2025 Project Possible
     <div class="slogan">
       每一杯MoyKay出品皆是真诚之作，<br>
       希望能开启每个消费者一天好心情。<br>
