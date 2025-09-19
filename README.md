@@ -200,7 +200,7 @@
     <div class="support-container">
       <img src="pngtree-burning-car-flat-vector-icon-event-simple-network-vector-png-image_12357406-Photoroom.png" 
      alt="Support Icon" id="supportBtn" style="background: transparent;">
- <button id="supportBtn">👍 Support</button>
+
     <p>Support Count: <span id="supportCount">0</span></p>
     </div>
 
