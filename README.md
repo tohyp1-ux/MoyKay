@@ -220,44 +220,56 @@
     </div>
   </footer>
 
-  <script>
-    // ====== 销售数据 ======
-    const lemonadeSold = 20;
-    const juiceSold = 15;
-    const priceLemon = 3;
-    const priceJuice = 5;
-    const priceMX5 = 150000;
+ <script>
+  // ====== 销售数据 ======
+  const lemonadeSold = 20;
+  const juiceSold = 15;
+  const priceLemon = 3;
+  const priceJuice = 5;
+  const priceMX5 = 150000;
 
-    const totalMoney = lemonadeSold * priceLemon + juiceSold * priceJuice;
-    const percent = Math.min((totalMoney / priceMX5) * 100, 100);
+  const totalMoney = lemonadeSold * priceLemon + juiceSold * priceJuice;
+  const percent = Math.min((totalMoney / priceMX5) * 100, 100);
 
-    const progressBar = document.getElementById('progressBar');
-    progressBar.style.width = percent + '%';
-    progressBar.textContent = Math.floor(percent) + '%';
+  const progressBar = document.getElementById('progressBar');
+  progressBar.style.width = percent + '%';
+  progressBar.textContent = Math.floor(percent) + '%';
 
-    document.getElementById('moneyInfo').textContent =
-      `已赚: ${totalMoney} MYR / ${priceMX5} MYR`;
+  document.getElementById('moneyInfo').textContent =
+    `已赚: ${totalMoney} MYR / ${priceMX5} MYR`;
 
-    document.getElementById('cupInfo').textContent =
-      `已卖出: ${lemonadeSold} 杯柠檬水 + ${juiceSold} 杯果汁`;
+  document.getElementById('cupInfo').textContent =
+    `已卖出: ${lemonadeSold} 杯柠檬水 + ${juiceSold} 杯果汁`;
 
-    // ====== 日期显示 ======
-    const today = new Date();
-    const dateString = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
-    document.getElementById('dateInfo').textContent = `今天是 ${dateString}`;
+  // ====== 日期显示 ======
+  const today = new Date();
+  const dateString = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+  document.getElementById('dateInfo').textContent = `今天是 ${dateString}`;
 
-    // ====== 助力按钮点击计数 + 本地存储 ======
-    let supportCount = localStorage.getItem("supportCount") || 0;
-    const supportBtn = document.getElementById('supportBtn');
-    const supportCountEl = document.getElementById('supportCount');
+  // ====== 助力按钮点击计数 + Google Sheets 全局存储 ======
+  const supportBtn = document.getElementById('supportBtn');
+  const supportCountEl = document.getElementById('supportCount');
+  const apiUrl = "https://script.google.com/macros/s/AKfycbxDgViyWKpQtthBM5xWAjF2XxcM6vccy2IZI8ubNGpwFehsBJMWtaKcLPLmvP0wgW_-/exec";
 
-    supportCountEl.textContent = supportCount;
-
-    supportBtn.addEventListener('click', () => {
-      supportCount++;
-      supportCountEl.textContent = supportCount;
-      localStorage.setItem("supportCount", supportCount);
+  // 页面加载时获取总数
+  fetch(apiUrl)
+    .then(res => res.text())
+    .then(count => {
+      supportCountEl.textContent = count;
+    })
+    .catch(err => {
+      console.error("获取计数失败:", err);
     });
-  </script>
-</body>
-</html>
+
+  // 点击按钮时 +1 并上传
+  supportBtn.addEventListener('click', () => {
+    fetch(apiUrl, { method: "POST" })
+      .then(res => res.text())
+      .then(count => {
+        supportCountEl.textContent = count;
+      })
+      .catch(err => {
+        console.error("上传计数失败:", err);
+      });
+  });
+</script>
