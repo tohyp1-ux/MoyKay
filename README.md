@@ -200,8 +200,8 @@
     <div class="support-container">
       <img src="pngtree-burning-car-flat-vector-icon-event-simple-network-vector-png-image_12357406-Photoroom.png" 
      alt="Support Icon" id="supportBtn" style="background: transparent;">
-
-      <div class="support-count" id="supportCount">0</div>
+ <button id="supportBtn">👍 Support</button>
+    <p>Support Count: <span id="supportCount">0</span></p>
     </div>
 
     <!-- 两张 MX-5 图片 -->
@@ -247,29 +247,37 @@
   document.getElementById('dateInfo').textContent = `今天是 ${dateString}`;
 
   // ====== 助力按钮点击计数 + Google Sheets 全局存储 ======
-  const supportBtn = document.getElementById('supportBtn');
-  const supportCountEl = document.getElementById('supportCount');
-  const apiUrl = "https://script.google.com/macros/s/AKfycbxDgViyWKpQtthBM5xWAjF2XxcM6vccy2IZI8ubNGpwFehsBJMWtaKcLPLmvP0wgW_-/exec";
+   const url = "https://script.google.com/macros/s/AKfycbxDgViyWKpQtthBM5xWAjF2XxcM6vccy2IZI8ubNGpwFehsBJMWtaKcLPLmvP0wgW_-/exec";
 
-  // 页面加载时获取总数
-  fetch(apiUrl)
-    .then(res => res.text())
-    .then(count => {
-      supportCountEl.textContent = count;
-    })
-    .catch(err => {
-      console.error("获取计数失败:", err);
-    });
+  async function fetchCount() {
+    try {
+      let res = await fetch(url);
+      let count = await res.text();
+      document.getElementById("supportCount").textContent = count;
+    } catch (err) {
+      console.error("读取失败:", err);
+    }
+  }
 
-  // 点击按钮时 +1 并上传
-  supportBtn.addEventListener('click', () => {
-    fetch(apiUrl, { method: "POST" })
+  async function addSupport() {
+    // 1. 本地立刻 +1
+    let countEl = document.getElementById("supportCount");
+    countEl.textContent = parseInt(countEl.textContent) + 1;
+
+    // 2. 异步请求更新 Google Sheet
+    fetch(url, { method: "POST" })
       .then(res => res.text())
-      .then(count => {
-        supportCountEl.textContent = count;
+      .then(newCount => {
+        // 确保数据和后端保持一致
+        countEl.textContent = newCount;
       })
       .catch(err => {
-        console.error("上传计数失败:", err);
+        console.error("更新失败:", err);
       });
-  });
+  }
+
+  document.getElementById("supportBtn").addEventListener("click", addSupport);
+
+  // 页面加载时获取初始数据
+  fetchCount();
 </script>
